@@ -95,7 +95,7 @@ with st.sidebar:
     **Type:** Single-Agent (Vulnerable)
     
     **Components:**
-    - 🧠 LLM (GPT-4o) — Reasoning + Planning
+    - 🧠 LLM (Llama 3 via Ollama) — Reasoning + Planning
     - 🦾 Tools — Direct execution access
     - 💾 Memory — Conversation history
     
