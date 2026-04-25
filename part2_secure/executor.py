@@ -189,14 +189,11 @@ class ExecutorAgent:
 
         return f"Email sent to {to} with subject '{subject}'. [SIMULATION: logged to sent_emails_log.json]"
 
-    def _tool_summarize(self, content: str, format: str = "bullet_points") -> str:
-        """Summarize content (simple truncation for demo — in production would use LLM)."""
-        lines = content.strip().split("\n")
+    def _tool_summarize(self, content: str, format: str = "paragraph") -> str:
+        """Return content directly — used for greetings and plain responses too."""
         if format == "bullet_points":
-            # Return first 10 non-empty lines as bullets
+            lines = content.strip().split("\n")
             bullets = [f"• {line.strip()}" for line in lines if line.strip()][:10]
-            return "\n".join(bullets)
-        elif format == "paragraph":
-            return content[:500] + ("..." if len(content) > 500 else "")
+            return "\n".join(bullets) if bullets else content
         else:
-            return content[:500]
+            return content
