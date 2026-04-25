@@ -228,9 +228,9 @@ with tab1:
                         # Store steps for the log tab
                         st.session_state.steps_log.extend(steps)
 
-                        # Check if hijacking occurred
+        # Check if hijacking occurred
                         exfil_path = os.path.join(os.path.dirname(__file__), "exfiltration_log.json")
-                        if os.path.exists(exfil_path) or result.get("exfil_triggered"):
+                        if result.get("exfil_triggered"):
                             st.session_state.hijacked = True
 
                         if st.session_state.hijacked:
